@@ -1,0 +1,1 @@
+{'word': ['merhabalar', 'ben', 'ilker', 'bu', 'da', 'deneme', 'dosyasıdır', 'umarım', 'çalışır'], 'g2p': ['meɾxɑbɑłɑɣ', 'bɛn', 'Ilcɛɣ', 'bU', 'dɑ', 'denɛmɛ', 'dɔsjɑsɨdɨɣ', 'Umɑɾɨm', 'tʃɑłɨʃɨɣ']}

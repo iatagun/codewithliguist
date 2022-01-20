@@ -1,0 +1,73 @@
+{% extends 'main/base.html' %}
+
+{% block Word %}
+    <form method="POST" id="wordForm">
+        {% csrf_token %}
+        <div class="row">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="text" id="word" placeholder="Buraya bir sözcük girin...">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-10 mb-3">
+                <input class="form-check-input" type="checkbox" name="checkbox" value="g2p" id="g2p">
+                <label class="form-check-label" for="g2p">Fonetik Yaz (G2P)</label>
+                <input class="form-check-input" type="checkbox" name="checkbox" value="harmony" id="harmony">
+                <label class="form-check-label" for="harmony">Ünlü Uyumu</label>
+                <input class="form-check-input" type="checkbox" name="checkbox" value="syllableH" id="syllableH">
+                <label class="form-check-label" for="syllableH">Seslemlere Ayır</label>
+                <input class="form-check-input" type="checkbox" name="checkbox" value="syllableM" id="syllableM">
+                <label class="form-check-label" for="syllableM">Seslemlere Ayır (Dönüştürür)</label>
+                <input class="form-check-input" type="checkbox" name="checkbox" value="syllableCount" id="syllableCount">
+                <label class="form-check-label" for="syllableCount">Seslem Örüntülerini Say</label>
+            </div>
+            <div class="col-sm-2">
+                <button type="submit" name="submit" value="submit" class="btn btn-primary mb-3 float-end">Çözümle</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
+{% block output %}
+<form id="output" >
+    <div class="row">
+        <p>{{ error2 }}</p>
+        <p> {{ g2p }} </p>
+        <p>{{ harmony }} </p>
+        <p>{{ syllable_o }}</p>
+        <p>{{ syllable_p }}</p>
+        <p>{{ syllableCount }}</p>
+        <p><a href="{{ download_link }}"> {{ download_text }} </a></p>
+    </div>
+</form>
+{% endblock %}
+
+
+{% block Document %}
+    <form method="POST" id="documentForm" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="input-group mb-3">
+                <input type="file" accept="text/*" class="form-control" name="upload" id="dataDocument">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-10 mb-3">
+                <input class="form-check-input" type="checkbox" name="checkboxfile" value="g2p" id="g2pc">
+                <label class="form-check-label" for="g2pc">Fonetik Yaz (G2P)</label>
+                <input class="form-check-input" type="checkbox" name="checkboxfile" value="harmony" id="harmonyc">
+                <label class="form-check-label" for="harmonyc">Ünlü Uyumu</label>
+                <input class="form-check-input" type="checkbox" name="checkboxfile" value="syllableH" id="syllableHc">
+                <label class="form-check-label" for="syllableHc">Seslemlere Ayır</label>
+                <input class="form-check-input" type="checkbox" name="checkboxfile" value="syllableM" id="syllableMc">
+                <label class="form-check-label" for="syllableMc">Seslemlere Ayır (Dönüştürür)</label>
+                <input class="form-check-input" type="checkbox" name="checkboxfile" value="syllableCount" id="syllableCountc">
+                <label class="form-check-label" for="syllableCountc">Seslem Örüntülerini Say</label>
+            </div>
+            <div class="col-sm-2">
+                <button type="submit" name="submitandprocess" value="submitandprocess" class="btn btn-primary mb-3 float-end">Yükle & Çözümle</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

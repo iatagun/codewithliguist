@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>dizge | AnkaraDDİ</title>
+        <link href="{% static 'main/css/style.css' %}" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h1>dizge</h1>
+            <p>Türkçe Dilbilgisi Çözümleyici</p>
+
+			<p>dizge, Nesne Yönelimli Programlama mantığıyla çalışan dilbilgisi çözümleme aracıdır.</p>
+
+            <!-- Tab links -->
+            <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'Word')" id="defaultOpen">Sözcük</button>
+                <button class="tablinks" onclick="openTab(event, 'Document')" id="betaButton">Doküman</button>
+            </div>
+
+            <!-- Tab content -->
+            <div id="Word" class="tabcontent">
+                {% block Word %}
+                {% endblock %}
+            </div>
+
+            <div id="Document" class="tabcontent">
+                {% block Document %}
+                {% endblock %}
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="output">
+                {% block output %}
+                {% endblock %}
+            </div>
+        </div>
+
+        <footer class="footer py-3 bg-light">
+            <div class="container">
+              <span class="text-muted">&copy; 2021 Mehmet Umut Mutlu, Nazlıcan Yetimaslan, İlker Atagün | <a href="mailto:ankaraddi@gmail.com">Lütfen görüşlerinizi bize bildiriniz.</a> | <a href="https://github.com/mehmetumutmutlu/dizge">GitHub</a> | <a href="https://pypi.org/project/dizge/">PyPi</a></span>
+            </div>
+        </footer>
+
+        <script src="{% static 'main/js/tabs.js' %}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    </body>
+</html>
